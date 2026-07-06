@@ -1,0 +1,6 @@
+streamlit>=1.25.0
+sqlalchemy>=2.0.0
+pandas>=2.0.0
+openpyxl>=3.1.0
+python-docx>=0.8.11
+plotly>=5.14.0
