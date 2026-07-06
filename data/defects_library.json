@@ -1,0 +1,1100 @@
+[
+  {
+    "category": "D",
+    "code": "D1.1",
+    "level2": "地质层符合性",
+    "level3": "实际地质与勘察对比",
+    "level4": "局部不符",
+    "description": "实际地质与勘察对比-局部不符",
+    "base": -5
+  },
+  {
+    "category": "D",
+    "code": "D1.1_2",
+    "level2": "地质层符合性",
+    "level3": "实际地质与勘察对比",
+    "level4": "严重不符",
+    "description": "实际地质与勘察对比-严重不符",
+    "base": -15
+  },
+  {
+    "category": "D",
+    "code": "D2.1",
+    "level2": "地质水文符合性",
+    "level3": "地下水位/渗流场对比",
+    "level4": "局部偏差",
+    "description": "地下水位/渗流场对比-局部偏差",
+    "base": -5
+  },
+  {
+    "category": "D",
+    "code": "D2.1_2",
+    "level2": "地质水文符合性",
+    "level3": "地下水位/渗流场对比",
+    "level4": "严重偏差",
+    "description": "地下水位/渗流场对比-严重偏差",
+    "base": -15
+  },
+  {
+    "category": "D",
+    "code": "D3.1",
+    "level2": "防护工程",
+    "level3": "增强（过度防护）",
+    "level4": "安全系数远高于规范(Fs>1.5)造成浪费",
+    "description": "过度防护",
+    "base": -2
+  },
+  {
+    "category": "D",
+    "code": "D3.2",
+    "level2": "防护工程",
+    "level3": "削弱（防护不足）",
+    "level4": "设计安全系数低于规范下限",
+    "description": "防护不足",
+    "base": -15
+  },
+  {
+    "category": "D",
+    "code": "D3.3_1",
+    "level2": "防护工程",
+    "level3": "设置不合理",
+    "level4": "过渡防护（小型边坡设大型抗滑桩）",
+    "description": "防护过渡",
+    "base": -3
+  },
+  {
+    "category": "D",
+    "code": "D3.3_2",
+    "level2": "防护工程",
+    "level3": "设置不合理",
+    "level4": "防护不足（坡率过陡无锚固）",
+    "description": "防护不足",
+    "base": -10
+  },
+  {
+    "category": "D",
+    "code": "D3.3_3",
+    "level2": "防护工程",
+    "level3": "设置不合理",
+    "level4": "防护类型不适合（膨胀土用浆砌片石）",
+    "description": "防护类型不当",
+    "base": -8
+  },
+  {
+    "category": "D",
+    "code": "D4.1_1",
+    "level2": "排水工程",
+    "level3": "尺寸不足",
+    "level4": "小于设计流量80%",
+    "description": "排水尺寸<80%",
+    "base": -5
+  },
+  {
+    "category": "D",
+    "code": "D4.1_2",
+    "level2": "排水工程",
+    "level3": "尺寸不足",
+    "level4": "小于设计流量50%",
+    "description": "排水尺寸<50%",
+    "base": -10
+  },
+  {
+    "category": "D",
+    "code": "D4.2_1",
+    "level2": "排水工程",
+    "level3": "未设置",
+    "level4": "坡顶无截水沟",
+    "description": "未设截水沟",
+    "base": -8
+  },
+  {
+    "category": "D",
+    "code": "D4.2_2",
+    "level2": "排水工程",
+    "level3": "未设置",
+    "level4": "坡面无泄水孔",
+    "description": "未设泄水孔",
+    "base": -8
+  },
+  {
+    "category": "D",
+    "code": "D4.2_3",
+    "level2": "排水工程",
+    "level3": "未设置",
+    "level4": "坡脚无排水沟",
+    "description": "未设坡脚排水沟",
+    "base": -8
+  },
+  {
+    "category": "D",
+    "code": "D4.3_1",
+    "level2": "排水工程",
+    "level3": "设置不合理",
+    "level4": "位置错误（截水沟设在坡面中部）",
+    "description": "排水位置错误",
+    "base": -6
+  },
+  {
+    "category": "D",
+    "code": "D4.3_2",
+    "level2": "排水工程",
+    "level3": "设置不合理",
+    "level4": "无反滤层",
+    "description": "无反滤层",
+    "base": -4
+  },
+  {
+    "category": "D",
+    "code": "D4.3_3",
+    "level2": "排水工程",
+    "level3": "设置不合理",
+    "level4": "无出口或出口堵塞（设计缺陷）",
+    "description": "无出口或堵塞",
+    "base": -5
+  },
+  {
+    "category": "D",
+    "code": "D5.1",
+    "level2": "特殊岩土",
+    "level3": "膨胀土",
+    "level4": "未做保湿/换填/弱膨胀锚固",
+    "description": "膨胀土未处理",
+    "base": -15
+  },
+  {
+    "category": "D",
+    "code": "D5.2",
+    "level2": "特殊岩土",
+    "level3": "岩溶",
+    "level4": "未探测溶洞/未处理隐伏溶洞",
+    "description": "岩溶未处理",
+    "base": -18
+  },
+  {
+    "category": "D",
+    "code": "D5.3",
+    "level2": "特殊岩土",
+    "level3": "红黏土/高液限土",
+    "level4": "未进行含水率控制或换填",
+    "description": "红黏土未控制",
+    "base": -8
+  },
+  {
+    "category": "D",
+    "code": "D6.1",
+    "level2": "边坡规模",
+    "level3": "坡级增加",
+    "level4": "每增加一级（超过设计），累计≤-5",
+    "description": "坡级增加每级",
+    "base": -1
+  },
+  {
+    "category": "C",
+    "code": "C1.1",
+    "level2": "边坡超挖",
+    "level3": "坡率变大",
+    "level4": "比设计值每陡0.1（如1:0.5→1:0.4），累计≤-12",
+    "description": "坡率变陡每0.1",
+    "base": -3
+  },
+  {
+    "category": "C",
+    "code": "C1.2",
+    "level2": "边坡超挖",
+    "level3": "局部凹凸",
+    "level4": "凹凸深度＞0.5m且面积＞10m²",
+    "description": "局部凹凸",
+    "base": -4
+  },
+  {
+    "category": "C",
+    "code": "C2.1",
+    "level2": "边坡欠挖",
+    "level3": "坡率变小",
+    "level4": "导致排水不畅",
+    "description": "坡率变小致排水不畅",
+    "base": -2
+  },
+  {
+    "category": "C",
+    "code": "C2.2",
+    "level2": "边坡欠挖",
+    "level3": "局部凹凸",
+    "level4": "凸出岩块可能崩塌",
+    "description": "凸出岩块可能崩塌",
+    "base": -2
+  },
+  {
+    "category": "C",
+    "code": "C3.1_1",
+    "level2": "防护工程",
+    "level3": "支挡失效",
+    "level4": "推移（墙顶位移＞5cm）",
+    "description": "支挡推移",
+    "base": -5
+  },
+  {
+    "category": "C",
+    "code": "C3.1_2",
+    "level2": "防护工程",
+    "level3": "支挡失效",
+    "level4": "沉降（不均匀＞3cm）",
+    "description": "支挡沉降",
+    "base": -5
+  },
+  {
+    "category": "C",
+    "code": "C3.1_3",
+    "level2": "防护工程",
+    "level3": "支挡失效",
+    "level4": "倾斜（倾斜率＞0.5%）",
+    "description": "支挡倾斜",
+    "base": -6
+  },
+  {
+    "category": "C",
+    "code": "C3.1_4",
+    "level2": "防护工程",
+    "level3": "支挡失效",
+    "level4": "倾覆（墙趾隆起、墙身后仰）",
+    "description": "支挡倾覆",
+    "base": -10
+  },
+  {
+    "category": "C",
+    "code": "C3.1_5",
+    "level2": "防护工程",
+    "level3": "支挡失效",
+    "level4": "破坏（墙体断裂、贯穿裂缝）",
+    "description": "支挡破坏",
+    "base": -12
+  },
+  {
+    "category": "C",
+    "code": "C3.1_6",
+    "level2": "防护工程",
+    "level3": "支挡失效",
+    "level4": "开裂（裂缝宽＞2mm，长＞5m）",
+    "description": "支挡开裂",
+    "base": -4
+  },
+  {
+    "category": "C",
+    "code": "C3.2_1",
+    "level2": "防护工程",
+    "level3": "锚固失效",
+    "level4": "松弛（预应力损失＞20%）",
+    "description": "锚固松弛",
+    "base": -4
+  },
+  {
+    "category": "C",
+    "code": "C3.2_2",
+    "level2": "防护工程",
+    "level3": "锚固失效",
+    "level4": "拉脱（锚头与垫板脱离）",
+    "description": "锚固拉脱",
+    "base": -8
+  },
+  {
+    "category": "C",
+    "code": "C3.2_3",
+    "level2": "防护工程",
+    "level3": "锚固失效",
+    "level4": "锈蚀断裂（锚索断裂一根以上）",
+    "description": "锚固锈断",
+    "base": -10
+  },
+  {
+    "category": "C",
+    "code": "C3.2_4",
+    "level2": "防护工程",
+    "level3": "锚固失效",
+    "level4": "锚点周边碎裂（混凝土框架开裂剥落）",
+    "description": "锚点碎裂",
+    "base": -6
+  },
+  {
+    "category": "C",
+    "code": "C3.3_1",
+    "level2": "防护工程",
+    "level3": "表层防护失效",
+    "level4": "表层冲刷（冲蚀深＞5cm，面积＞5m²）",
+    "description": "表层冲刷",
+    "base": -3
+  },
+  {
+    "category": "C",
+    "code": "C3.3_2",
+    "level2": "防护工程",
+    "level3": "表层防护失效",
+    "level4": "表层滑动（局部滑移脱离坡面）",
+    "description": "表层滑动",
+    "base": -5
+  },
+  {
+    "category": "C",
+    "code": "C3.3_3",
+    "level2": "防护工程",
+    "level3": "表层防护失效",
+    "level4": "土体裸露（防护层剥落面积＞20%）",
+    "description": "土体裸露",
+    "base": -4
+  },
+  {
+    "category": "C",
+    "code": "C3.3_4",
+    "level2": "防护工程",
+    "level3": "表层防护失效",
+    "level4": "开裂渗水（裂缝＞3mm且渗水）",
+    "description": "开裂渗水",
+    "base": -4
+  },
+  {
+    "category": "C",
+    "code": "C3.3_5",
+    "level2": "防护工程",
+    "level3": "表层防护失效",
+    "level4": "局部崩塌（小块土体崩落）",
+    "description": "局部崩塌",
+    "base": -6
+  },
+  {
+    "category": "C",
+    "code": "C3.4_1",
+    "level2": "防护工程",
+    "level3": "未按设计施工",
+    "level4": "材料不符（强度低一级）",
+    "description": "材料不符",
+    "base": -6
+  },
+  {
+    "category": "C",
+    "code": "C3.4_2",
+    "level2": "防护工程",
+    "level3": "未按设计施工",
+    "level4": "位置偏移（抗滑桩偏移＞1m）",
+    "description": "位置偏移",
+    "base": -4
+  },
+  {
+    "category": "C",
+    "code": "C3.4_3",
+    "level2": "防护工程",
+    "level3": "未按设计施工",
+    "level4": "数量不足（锚杆少20%）",
+    "description": "数量不足",
+    "base": -8
+  },
+  {
+    "category": "C",
+    "code": "C3.4_4",
+    "level2": "防护工程",
+    "level3": "未按设计施工",
+    "level4": "结构形式改变（扶壁→重力式）",
+    "description": "结构形式改变",
+    "base": -10
+  },
+  {
+    "category": "C",
+    "code": "C4.1_1",
+    "level2": "排水工程",
+    "level3": "排水失效",
+    "level4": "泄水孔堵塞（堵塞＞30%）",
+    "description": "泄水孔堵塞",
+    "base": -4
+  },
+  {
+    "category": "C",
+    "code": "C4.1_2",
+    "level2": "排水工程",
+    "level3": "排水失效",
+    "level4": "渗沟盲沟堵塞（淤积＞20%）",
+    "description": "渗沟盲沟堵塞",
+    "base": -5
+  },
+  {
+    "category": "C",
+    "code": "C4.1_3",
+    "level2": "排水工程",
+    "level3": "排水失效",
+    "level4": "无反滤效果（粒料缺失或土工布破损）",
+    "description": "无反滤",
+    "base": -5
+  },
+  {
+    "category": "C",
+    "code": "C4.1_4",
+    "level2": "排水工程",
+    "level3": "排水失效",
+    "level4": "排水沟堵塞（堵塞长度＞30%）",
+    "description": "排水沟堵塞",
+    "base": -6
+  },
+  {
+    "category": "C",
+    "code": "C4.2_1",
+    "level2": "排水工程",
+    "level3": "未按设计施工",
+    "level4": "位置偏移＞2m",
+    "description": "排水位置偏移",
+    "base": -5
+  },
+  {
+    "category": "C",
+    "code": "C4.2_2",
+    "level2": "排水工程",
+    "level3": "未按设计施工",
+    "level4": "范围不足（长度/深度＜80%设计）",
+    "description": "排水范围不足",
+    "base": -5
+  },
+  {
+    "category": "C",
+    "code": "C4.2_3",
+    "level2": "排水工程",
+    "level3": "未按设计施工",
+    "level4": "数量不足（泄水孔少20%）",
+    "description": "排水数量不足",
+    "base": -5
+  },
+  {
+    "category": "C",
+    "code": "C4.2_4",
+    "level2": "排水工程",
+    "level3": "未按设计施工",
+    "level4": "材料不符（管材/混凝土强度不足）",
+    "description": "排水材料不符",
+    "base": -5
+  },
+  {
+    "category": "C",
+    "code": "C4.2_5",
+    "level2": "排水工程",
+    "level3": "未按设计施工",
+    "level4": "结构形式不符（透水要求不满足）",
+    "description": "排水结构不符",
+    "base": -6
+  },
+  {
+    "category": "E",
+    "code": "E1.1",
+    "level2": "气候变化",
+    "level3": "岩层温差裂解",
+    "level4": "日温差＞15℃且岩性为泥岩/页岩/炭质岩",
+    "description": "岩层温差裂解",
+    "base": -2
+  },
+  {
+    "category": "E",
+    "code": "E1.2",
+    "level2": "气候变化",
+    "level3": "土层缩胀变形",
+    "level4": "膨胀土出现可见裂缝（宽度＞1cm）",
+    "description": "膨胀土缩胀",
+    "base": -4
+  },
+  {
+    "category": "E",
+    "code": "E1.3",
+    "level2": "气候变化",
+    "level3": "温差循环开裂",
+    "level4": "混凝土/浆砌体出现明显温差裂缝",
+    "description": "温差循环开裂",
+    "base": -2
+  },
+  {
+    "category": "E",
+    "code": "E2.1_1",
+    "level2": "水环境变化",
+    "level3": "汇水面变化",
+    "level4": "排水体系失效（整体排水功能丧失）",
+    "description": "排水体系失效",
+    "base": -8
+  },
+  {
+    "category": "E",
+    "code": "E2.1_2",
+    "level2": "水环境变化",
+    "level3": "汇水面变化",
+    "level4": "冲刷变化：汇水面改变（上游汇水面积+30%）",
+    "description": "汇水面改变",
+    "base": -6
+  },
+  {
+    "category": "E",
+    "code": "E2.1_3",
+    "level2": "水环境变化",
+    "level3": "汇水面变化",
+    "level4": "冲刷变化：冲槽形成（深度＞0.3m集中冲沟）",
+    "description": "冲槽形成",
+    "base": -5
+  },
+  {
+    "category": "E",
+    "code": "E2.1_4",
+    "level2": "水环境变化",
+    "level3": "汇水面变化",
+    "level4": "冲刷变化：结构物支护面掏空（挡墙基础悬空）",
+    "description": "结构物掏空",
+    "base": -8
+  },
+  {
+    "category": "E",
+    "code": "E2.1_5",
+    "level2": "水环境变化",
+    "level3": "区域降雨量超标",
+    "level4": "同期雨量超历史（近30年最大）",
+    "description": "降雨超历史",
+    "base": -8
+  },
+  {
+    "category": "E",
+    "code": "E2.1_6",
+    "level2": "水环境变化",
+    "level3": "区域降雨量超标",
+    "level4": "最大雨量超设计（小时雨量＞重现期）",
+    "description": "降雨超设计",
+    "base": -10
+  },
+  {
+    "category": "E",
+    "code": "E2.1_7",
+    "level2": "水环境变化",
+    "level3": "区域降雨量超标",
+    "level4": "山洪汇水（坡顶临时性洪水流）",
+    "description": "山洪汇水",
+    "base": -8
+  },
+  {
+    "category": "E",
+    "code": "E2.1_8",
+    "level2": "水环境变化",
+    "level3": "区域降雨量超标",
+    "level4": "淤塞积水（坡面低洼积水＞0.3m，持续＞3天）",
+    "description": "淤塞积水",
+    "base": -4
+  },
+  {
+    "category": "E",
+    "code": "E2.2_1",
+    "level2": "水环境变化",
+    "level3": "土层软化",
+    "level4": "层间粘结弱化→出现推移（坡体向下挤压）",
+    "description": "软化推移",
+    "base": -5
+  },
+  {
+    "category": "E",
+    "code": "E2.2_2",
+    "level2": "水环境变化",
+    "level3": "土层软化",
+    "level4": "层间摩擦弱化→出现滑移（整体滑动）",
+    "description": "软化滑移",
+    "base": -6
+  },
+  {
+    "category": "E",
+    "code": "E2.2_3",
+    "level2": "水环境变化",
+    "level3": "土层软化",
+    "level4": "层间支撑弱化→出现沉陷（不均匀下沉＞5cm）",
+    "description": "软化沉陷",
+    "base": -5
+  },
+  {
+    "category": "E",
+    "code": "E2.2_4",
+    "level2": "水环境变化",
+    "level3": "土层软化",
+    "level4": "层间空隙加大→压缩变形（沉降＞5cm）",
+    "description": "软化压缩",
+    "base": -4
+  },
+  {
+    "category": "E",
+    "code": "E2.2_5",
+    "level2": "水环境变化",
+    "level3": "土层软化",
+    "level4": "土层水解软化→软塑或流塑（手捏可塑）",
+    "description": "水解软化",
+    "base": -6
+  },
+  {
+    "category": "E",
+    "code": "E2.3_1",
+    "level2": "水环境变化",
+    "level3": "干湿循环",
+    "level4": "湿重变化：整体湿重过大（含水率＞液限）",
+    "description": "整体湿重过大",
+    "base": -4
+  },
+  {
+    "category": "E",
+    "code": "E2.3_2",
+    "level2": "水环境变化",
+    "level3": "干湿循环",
+    "level4": "湿重变化：层间湿重不均（含水率差＞10%）",
+    "description": "层间湿重不均",
+    "base": -3
+  },
+  {
+    "category": "E",
+    "code": "E2.3_3",
+    "level2": "水环境变化",
+    "level3": "干湿循环",
+    "level4": "土层变形（出现网纹状胀缩裂缝）",
+    "description": "胀缩裂缝",
+    "base": -5
+  },
+  {
+    "category": "E",
+    "code": "E2.3_4",
+    "level2": "水环境变化",
+    "level3": "干湿循环",
+    "level4": "表层开裂松散（坡面龟裂，手抓即散）",
+    "description": "表层开裂松散",
+    "base": -4
+  },
+  {
+    "category": "E",
+    "code": "E2.4_1",
+    "level2": "水环境变化",
+    "level3": "地势高差",
+    "level4": "动水压力潮汐作用（临河路基水位变动带）",
+    "description": "动水潮汐",
+    "base": -6
+  },
+  {
+    "category": "E",
+    "code": "E2.4_2",
+    "level2": "水环境变化",
+    "level3": "地势高差",
+    "level4": "高低位置湿重不平衡（半填挖路基）",
+    "description": "湿重不平衡",
+    "base": -5
+  },
+  {
+    "category": "E",
+    "code": "E2.4_3",
+    "level2": "水环境变化",
+    "level3": "地势高差",
+    "level4": "渗流场变化（高大山体透水边坡，坡面溢水）",
+    "description": "渗流场变化",
+    "base": -6
+  },
+  {
+    "category": "E",
+    "code": "E2.4_4",
+    "level2": "水环境变化",
+    "level3": "地势高差",
+    "level4": "水头压力差（浸水路堤两侧水位差＞2m）",
+    "description": "水头压力差",
+    "base": -7
+  },
+  {
+    "category": "E",
+    "code": "E3.1_1",
+    "level2": "堆载变化",
+    "level3": "外部堆载",
+    "level4": "弃土场（堆高＞3m且距坡顶＜10m）",
+    "description": "弃土场堆载",
+    "base": -8
+  },
+  {
+    "category": "E",
+    "code": "E3.1_2",
+    "level2": "堆载变化",
+    "level3": "外部堆载",
+    "level4": "增加结构物（新建电塔/桥墩）",
+    "description": "新增结构物",
+    "base": -5
+  },
+  {
+    "category": "E",
+    "code": "E3.1_3",
+    "level2": "堆载变化",
+    "level3": "外部堆载",
+    "level4": "填平区加载（厚度＞2m）",
+    "description": "填平区加载",
+    "base": -4
+  },
+  {
+    "category": "E",
+    "code": "E3.2_1",
+    "level2": "堆载变化",
+    "level3": "坡上负荷变化",
+    "level4": "冲刷堆积（坡面堆积物厚度＞0.5m）",
+    "description": "冲刷堆积",
+    "base": -3
+  },
+  {
+    "category": "E",
+    "code": "E3.2_2",
+    "level2": "堆载变化",
+    "level3": "坡上负荷变化",
+    "level4": "大平台设置（平台堆载）",
+    "description": "大平台堆载",
+    "base": -2
+  },
+  {
+    "category": "E",
+    "code": "E3.3_1",
+    "level2": "堆载变化",
+    "level3": "坡率变化",
+    "level4": "冲刷改变（坡脚冲刷导致坡率变陡，每5°）",
+    "description": "冲刷变陡",
+    "base": -2
+  },
+  {
+    "category": "E",
+    "code": "E3.3_2",
+    "level2": "堆载变化",
+    "level3": "坡率变化",
+    "level4": "局部崩塌沉陷（塌陷区面积＞20m²）",
+    "description": "局部崩塌沉陷",
+    "base": -5
+  },
+  {
+    "category": "E",
+    "code": "E3.4",
+    "level2": "堆载变化",
+    "level3": "植被增加",
+    "level4": "乔木生长（树高＞3m，可能破坏防护）",
+    "description": "乔木生长",
+    "base": -3
+  },
+  {
+    "category": "E",
+    "code": "E4.1",
+    "level2": "振动影响",
+    "level3": "振能过大失稳",
+    "level4": "爆破振动速度＞2cm/s",
+    "description": "爆破振动",
+    "base": -6
+  },
+  {
+    "category": "E",
+    "code": "E4.2",
+    "level2": "振动影响",
+    "level3": "持续振动失稳",
+    "level4": "距铁路/重载公路＜50m，且日交通量＞5000辆",
+    "description": "持续振动",
+    "base": -4
+  },
+  {
+    "category": "E",
+    "code": "E5.1",
+    "level2": "其他因素",
+    "level3": "综合因素+时间",
+    "level4": "岩土风化严重（手捏可碎，锤击易碎）",
+    "description": "岩土风化",
+    "base": -3
+  },
+  {
+    "category": "E",
+    "code": "E5.2",
+    "level2": "其他因素",
+    "level3": "其他因素",
+    "level4": "特殊人为破坏等（由评估人员酌情）",
+    "description": "其他因素",
+    "base": -2
+  },
+  {
+    "category": "O",
+    "code": "O1.1_1",
+    "level2": "边坡技术状况",
+    "level3": "水土流失",
+    "level4": "渗水（坡面持续渗水）",
+    "description": "渗水",
+    "base": -2
+  },
+  {
+    "category": "O",
+    "code": "O1.1_2",
+    "level2": "边坡技术状况",
+    "level3": "水土流失",
+    "level4": "冲刷（冲沟深度＞0.2m）",
+    "description": "冲刷",
+    "base": -2
+  },
+  {
+    "category": "O",
+    "code": "O1.1_3",
+    "level2": "边坡技术状况",
+    "level3": "水土流失",
+    "level4": "溶蚀（岩质边坡出现溶孔、溶槽）",
+    "description": "溶蚀",
+    "base": -6
+  },
+  {
+    "category": "O",
+    "code": "O1.2_1",
+    "level2": "边坡技术状况",
+    "level3": "防护工程（支护变形失效）",
+    "level4": "局部失效：沉降（＞2cm）",
+    "description": "防护沉降",
+    "base": -4
+  },
+  {
+    "category": "O",
+    "code": "O1.2_2",
+    "level2": "边坡技术状况",
+    "level3": "防护工程（支护变形失效）",
+    "level4": "局部失效：开裂（缝宽＞2mm）",
+    "description": "防护开裂",
+    "base": -4
+  },
+  {
+    "category": "O",
+    "code": "O1.2_3",
+    "level2": "边坡技术状况",
+    "level3": "防护工程（支护变形失效）",
+    "level4": "局部失效：推移（＞3cm）",
+    "description": "防护推移",
+    "base": -5
+  },
+  {
+    "category": "O",
+    "code": "O1.2_4",
+    "level2": "边坡技术状况",
+    "level3": "防护工程（支护变形失效）",
+    "level4": "局部失效：破损（混凝土剥落＞0.5m²）",
+    "description": "防护破损",
+    "base": -4
+  },
+  {
+    "category": "O",
+    "code": "O1.2_5",
+    "level2": "边坡技术状况",
+    "level3": "防护工程（支护变形失效）",
+    "level4": "完全失效（整体滑移、倾覆）",
+    "description": "防护完全失效",
+    "base": -12
+  },
+  {
+    "category": "O",
+    "code": "O1.3_1",
+    "level2": "边坡技术状况",
+    "level3": "锚固体系失效",
+    "level4": "局部失效：松弛（预应力损失＞20%）",
+    "description": "锚固松弛",
+    "base": -4
+  },
+  {
+    "category": "O",
+    "code": "O1.3_2",
+    "level2": "边坡技术状况",
+    "level3": "锚固体系失效",
+    "level4": "局部失效：松脱（锚头松动）",
+    "description": "锚固松脱",
+    "base": -4
+  },
+  {
+    "category": "O",
+    "code": "O1.3_3",
+    "level2": "边坡技术状况",
+    "level3": "锚固体系失效",
+    "level4": "局部失效：开裂（锚墩裂缝）",
+    "description": "锚固开裂",
+    "base": -3
+  },
+  {
+    "category": "O",
+    "code": "O1.3_4",
+    "level2": "边坡技术状况",
+    "level3": "锚固体系失效",
+    "level4": "局部失效：推移（锚垫板位移）",
+    "description": "锚固推移",
+    "base": -4
+  },
+  {
+    "category": "O",
+    "code": "O1.3_5",
+    "level2": "边坡技术状况",
+    "level3": "锚固体系失效",
+    "level4": "局部失效：破损（锚头锈蚀）",
+    "description": "锚固破损",
+    "base": -3
+  },
+  {
+    "category": "O",
+    "code": "O1.3_6",
+    "level2": "边坡技术状况",
+    "level3": "锚固体系失效",
+    "level4": "完全失效（锚索断裂、拔出）",
+    "description": "锚固完全失效",
+    "base": -12
+  },
+  {
+    "category": "O",
+    "code": "O1.4_1",
+    "level2": "边坡技术状况",
+    "level3": "表面防护失效",
+    "level4": "局部失效：沉降",
+    "description": "表面沉降",
+    "base": -3
+  },
+  {
+    "category": "O",
+    "code": "O1.4_2",
+    "level2": "边坡技术状况",
+    "level3": "表面防护失效",
+    "level4": "局部失效：渗水",
+    "description": "表面渗水",
+    "base": -3
+  },
+  {
+    "category": "O",
+    "code": "O1.4_3",
+    "level2": "边坡技术状况",
+    "level3": "表面防护失效",
+    "level4": "局部失效：开裂",
+    "description": "表面开裂",
+    "base": -3
+  },
+  {
+    "category": "O",
+    "code": "O1.4_4",
+    "level2": "边坡技术状况",
+    "level3": "表面防护失效",
+    "level4": "局部失效：推移",
+    "description": "表面推移",
+    "base": -4
+  },
+  {
+    "category": "O",
+    "code": "O1.4_5",
+    "level2": "边坡技术状况",
+    "level3": "表面防护失效",
+    "level4": "局部失效：破损",
+    "description": "表面破损",
+    "base": -3
+  },
+  {
+    "category": "O",
+    "code": "O1.4_6",
+    "level2": "边坡技术状况",
+    "level3": "表面防护失效",
+    "level4": "完全失效（大面积剥落，无防护作用）",
+    "description": "表面完全失效",
+    "base": -8
+  },
+  {
+    "category": "O",
+    "code": "O1.5_1",
+    "level2": "边坡技术状况",
+    "level3": "绿化防护",
+    "level4": "稀疏草灌（覆盖率＜50%）",
+    "description": "绿化稀疏",
+    "base": -1
+  },
+  {
+    "category": "O",
+    "code": "O1.5_2",
+    "level2": "边坡技术状况",
+    "level3": "绿化防护",
+    "level4": "无植被（完全裸露）",
+    "description": "无植被",
+    "base": -3
+  },
+  {
+    "category": "O",
+    "code": "O1.5_3",
+    "level2": "边坡技术状况",
+    "level3": "绿化防护",
+    "level4": "有乔木（树高＞2m，侵入防护）",
+    "description": "有乔木",
+    "base": -2
+  },
+  {
+    "category": "O",
+    "code": "O1.6_1",
+    "level2": "边坡技术状况",
+    "level3": "排水工程失效",
+    "level4": "局部失效：沉降（排水沟下沉＞3cm）",
+    "description": "排水沉降",
+    "base": -3
+  },
+  {
+    "category": "O",
+    "code": "O1.6_2",
+    "level2": "边坡技术状况",
+    "level3": "排水工程失效",
+    "level4": "局部失效：渗水（沟壁渗漏）",
+    "description": "排水渗水",
+    "base": -2
+  },
+  {
+    "category": "O",
+    "code": "O1.6_3",
+    "level2": "边坡技术状况",
+    "level3": "排水工程失效",
+    "level4": "局部失效：开裂（裂缝贯通）",
+    "description": "排水开裂",
+    "base": -3
+  },
+  {
+    "category": "O",
+    "code": "O1.6_4",
+    "level2": "边坡技术状况",
+    "level3": "排水工程失效",
+    "level4": "局部失效：推移（沟体位移）",
+    "description": "排水推移",
+    "base": -4
+  },
+  {
+    "category": "O",
+    "code": "O1.6_5",
+    "level2": "边坡技术状况",
+    "level3": "排水工程失效",
+    "level4": "局部失效：破损（沟壁崩塌）",
+    "description": "排水破损",
+    "base": -3
+  },
+  {
+    "category": "O",
+    "code": "O1.6_6",
+    "level2": "边坡技术状况",
+    "level3": "排水工程失效",
+    "level4": "局部失效：淤积（深度＞断面1/3）",
+    "description": "排水淤积",
+    "base": -3
+  },
+  {
+    "category": "O",
+    "code": "O1.6_7",
+    "level2": "边坡技术状况",
+    "level3": "排水工程失效",
+    "level4": "局部失效：堵塞（完全堵塞）",
+    "description": "排水堵塞",
+    "base": -4
+  },
+  {
+    "category": "O",
+    "code": "O1.6_8",
+    "level2": "边坡技术状况",
+    "level3": "排水工程失效",
+    "level4": "完全失效（整体断裂、无反滤）",
+    "description": "排水完全失效",
+    "base": -8
+  },
+  {
+    "category": "O",
+    "code": "O1.7_1",
+    "level2": "边坡技术状况",
+    "level3": "边坡规模变化",
+    "level4": "坡率大小变化：陡峭（较原设计每陡0.05），累计≤-10",
+    "description": "坡率变陡",
+    "base": -2
+  },
+  {
+    "category": "O",
+    "code": "O1.7_2",
+    "level2": "边坡技术状况",
+    "level3": "边坡规模变化",
+    "level4": "分级高度/数量变化：增大（每级增加2m或多一级），累计≤-10",
+    "description": "分级增大",
+    "base": -2
+  }
+]
