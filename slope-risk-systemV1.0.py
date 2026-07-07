@@ -700,6 +700,7 @@ def generate_word_report(project_id):
         (WeightConfig.project_id == project_id) | (WeightConfig.is_global == True)
     ).order_by(WeightConfig.is_global.desc()).first()
     grade_cfg = get_system_config('grade_thresholds')
+
     st.write("调试1: grade_cfg =", grade_cfg)  # 打印完整配置
     st.write("调试2: S_final =", S_final)  # 打印最终得分
     grade = '未定义'
@@ -1424,17 +1425,22 @@ def show_result_report():
         st.error("项目不存在")
         return
     st.subheader(f"项目：{project.name}")
-    
+
     if st.button("开始评估"):
         try:
             engine = RiskEngine(pid)
             result, details = engine.compute()
+            # 存储到 session_state
+            st.session_state['last_result'] = result
             st.session_state['coupling_details'] = details
             st.success("评估完成！请查看下方结果。")
         except Exception as e:
             st.error(f"评估失败：{str(e)}")
-    
-    result = session.query(Result).filter_by(project_id=pid).order_by(Result.id.desc()).first()
+
+    result = st.session_state.get('last_result', None)
+    if result is None:
+        # 如果 session_state 没有，则从数据库读取
+        result = session.query(Result).filter_by(project_id=pid).order_by(Result.id.desc()).first()
     if not result:
         st.info("尚未进行评估，请点击上方按钮")
         session.close()
