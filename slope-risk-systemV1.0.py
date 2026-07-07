@@ -484,49 +484,55 @@ class RiskEngine:
         a1, a2, a3, a4, alpha = self.calc_alpha()
         S_final = S_base_corrected * alpha
 
+        # ========== 等级判定（带调试输出） ==========
         grade_cfg = get_system_config('grade_thresholds')
-        grade = '未定义'
-        for t in grade_cfg.get('thresholds', []):
-            if t['min'] <= S_final <= t['max']:
-                grade = t['level']
-                break
-        #if grade == '未定义' and S_final >= 80:
-            #grade = '低风险'
-        #elif grade == '未定义' and S_final >= 60:
-            #grade = '中风险'
-        #elif grade == '未定义' and S_final >= 40:
-            #grade = '高风险'
-        #elif grade == '未定义':
-            #grade = '极高风险'
-        # 如果未匹配到，使用硬编码后备
-        if grade == '未定义':
-            if S_final >= 80:
-                grade = '低风险'
-            elif S_final >= 60:
-                grade = '中风险'
-            elif S_final >= 40:
-                grade = '高风险'
-            else:
-                grade = '极高风险'
+        st.write("### 调试信息开始 ###")
+        st.write(f"1. S_final = {S_final}")
+        st.write(f"2. grade_cfg 内容：", grade_cfg)
 
+        grade = '未定义'
+        if grade_cfg and 'thresholds' in grade_cfg:
+            for t in grade_cfg['thresholds']:
+                st.write(f"   检查区间: {t['min']} <= {S_final} <= {t['max']} ?")
+                if t['min'] <= S_final <= t['max']:
+                    grade = t['level']
+                    st.write(f"   ✅ 匹配！等级设为 {grade}")
+                    break
+            else:
+                st.write(f"   ❌ 未匹配任何区间")
+        else:
+            st.write("   ❌ grade_cfg 无效或没有 'thresholds' 键")
+
+        st.write(f"3. 初判等级 grade = {grade}")
+
+        # 力学复核
         final_grade = grade
-        # 力学复核调整（如果有）
         if self.project.fs_input is not None:
             fs = self.project.fs_input
+            st.write(f"4. 力学复核 fs_input = {fs}")
             design_fs = 1.25
             if fs < 1.0:
                 final_grade = '极高风险'
+                st.write("   fs < 1.0 -> 直接定为极高风险")
             elif fs < design_fs:
                 order = ['低风险','中风险','高风险','极高风险']
                 idx = order.index(grade) if grade in order else 0
                 if idx < 3:
                     final_grade = order[idx+1]
+                    st.write(f"   fs < 设计值 -> 上调一级，final_grade = {final_grade}")
             elif fs >= design_fs * 1.1:
                 order = ['低风险','中风险','高风险','极高风险']
                 idx = order.index(grade) if grade in order else 0
                 if idx > 0:
                     final_grade = order[idx-1]
+                    st.write(f"   fs >= 1.1*设计值 -> 下调一级，final_grade = {final_grade}")
+        else:
+            st.write("4. 无力学复核值，final_grade = grade")
 
+        st.write(f"5. 最终等级 final_grade = {final_grade}")
+        st.write("### 调试信息结束 ###")
+
+        # 后续响应措施和保存结果
         measures_cfg = get_system_config('response_measures')
         response = measures_cfg.get(final_grade, '请配置响应措施')
 
