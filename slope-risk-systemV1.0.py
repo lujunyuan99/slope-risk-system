@@ -892,8 +892,17 @@ def show_project_management():
         st.info("暂无项目")
     else:
         data = []
-        for p in projects:
-            result = session.query(Result).filter_by(project_id=p.id).order_by(Result.id.desc()).first()
+        # 原来的循环查询
+        # for p in projects:
+            # result = session.query(Result).filter_by(project_id=p.id).order_by(Result.id.desc()).first()
+        # 改为一次性查询（需要调整逻辑）
+        from sqlalchemy import func, desc
+        subq = session.query(Result.project_id, func.max(Result.id).label('max_id')).group_by(
+            Result.project_id).subquery()
+        results = session.query(Result).join(subq, (Result.id == subq.c.max_id) & (
+                    Result.project_id == subq.c.project_id)).all()
+        result_map = {r.project_id: r for r in results}
+        # 然后在循环中从 result_map 获取
             grade = result.final_grade if result else "未评估"
             data.append({"ID": p.id, "名称": p.name, "桩号": p.pile_no, "等级": grade, "更新时间": p.updated_at.strftime("%Y-%m-%d")})
         df = pd.DataFrame(data)
