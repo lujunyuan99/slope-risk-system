@@ -55,6 +55,7 @@ class SurveyDefect(Base):
     level4 = Column(String(50))
     base_deduction = Column(Float)
     zone_factor = Column(Float, default=1.0)
+    numeric_value = Column(Float, default=0.0)  # 新增，用于存储数字输入
 
 class WeightConfig(Base):
     __tablename__ = 'weight_configs'
@@ -126,7 +127,7 @@ def init_system_configs():
         default = {
             '低风险': '常规巡检，每年一次定期评估。',
             '中风险': '加强日常巡检（每月专项巡查1次），半年内制定处治方案，必要时设临时监测。',
-            '高风险': '限速60km/h，设置临时排水，3个月内完成加固设计，启动自动化监测。',
+            '高风险': '限速100km/h，设置临时排水，3个月内完成加固设计，启动自动化监测。',
             '极高风险': '立即封闭车道或路段，24小时监控，启动应急抢险，组织专家会商。'
         }
         session.add(SystemConfig(config_type='response_measures', config_data=default))
@@ -388,7 +389,13 @@ class RiskEngine:
                 if self.wcfg.zone_factors and self.zone:
                     zone_factors = self.wcfg.zone_factors.get(self.zone, {})
                     factor = zone_factors.get(d.code, 1.0)
-                total += abs(d.base_deduction) * factor
+                # 特殊处理 D6.1：使用用户输入的级数
+                if d.code == "D6.1":
+                    # 如果 numeric_value 为0，默认扣1分（兼容旧数据）
+                    level_count = d.numeric_value if d.numeric_value and d.numeric_value > 0 else 1
+                    total += abs(d.base_deduction) * factor * level_count
+                else:
+                    total += abs(d.base_deduction) * factor
         return max(100 - total, 0)
 
     def calc_alpha(self):
@@ -507,7 +514,7 @@ class RiskEngine:
 
         # 力学复核
         final_grade = grade
-        if self.project.fs_input is not None:
+        if self.project.fs_input is not None and self.project.fs_input > 0:
             fs = self.project.fs_input
             st.write(f"4. 力学复核 fs_input = {fs}")
             design_fs = 1.25
@@ -1113,8 +1120,8 @@ def show_data_entry():
             current_fac = project.facilities.split(',') if project.facilities else ['无']
             selected_fac = st.multiselect("周边重要设施（可多选）", facilities_options, default=current_fac)
             project.facilities = ','.join(selected_fac) if selected_fac else '无'
-            monitor_opts = ['自动化', '人工有演练', '人工无演练']
-            current_mon = project.monitor_emergency if project.monitor_emergency in monitor_opts else '人工无演练'
+            monitor_opts = ['有自动化监测 + 应急联动完整（近1年演练）', '仅有部分（人工、轻量化监测或有预案但无演练或资源缺失）', '无自动化监测 且 无应急联动（无预案/无演练/无资源）']
+            current_mon = project.monitor_emergency if project.monitor_emergency in monitor_opts else '仅有部分（人工、轻量化监测或有预案但无演练或资源缺失'
             project.monitor_emergency = st.selectbox("监测应急能力", monitor_opts, index=monitor_opts.index(current_mon))
             project.operating_years = st.number_input("运营年限", value=project.operating_years or 0, step=1)
             project.rainfall_3d = st.number_input("前3天累计雨量(mm)", value=project.rainfall_3d or 0.0)
@@ -1152,17 +1159,47 @@ def show_data_entry():
                     cols = st.columns(2)
                     for i, d in enumerate(items3):
                         col = cols[i % 2]
+                        # 获取分区系数
                         wcfg = session.query(WeightConfig).filter(
                             (WeightConfig.project_id == pid) | (WeightConfig.is_global == True)
                         ).order_by(WeightConfig.is_global.desc()).first()
                         zone_factors = wcfg.zone_factors or {}
                         factor = zone_factors.get(project.zone, {}).get(d.code, 1.0)
                         d.zone_factor = factor
-                        label = f"{d.code} - {d.level4 or d.description} (扣{abs(d.base_deduction)*factor:.1f})"
-                        checked = col.checkbox(label, value=d.checked, key=f"def_{d.id}")
-                        if checked != d.checked:
+
+                        # ----- 特殊处理 D6.1（坡级增加） -----
+                        if d.code == "D6.1":
+                            # 显示复选框 + 数字输入框
+                            checked = col.checkbox(
+                                f"{d.code} - {d.level4} (每级扣1分)",
+                                value=d.checked,
+                                key=f"def_{d.id}"
+                            )
+                            if checked:
+                                # 显示数字输入框，让用户输入级数（1~10级）
+                                numeric_val = col.number_input(
+                                    f"增加级数",
+                                    min_value=1,
+                                    max_value=10,
+                                    step=1,
+                                    value=int(d.numeric_value or 1),
+                                    key=f"num_{d.id}"
+                                )
+                                d.numeric_value = float(numeric_val)
+                            else:
+                                d.numeric_value = 0.0
                             d.checked = checked
-                            session.commit()
+                        else:
+                            # ----- 其他缺陷保持原样 -----
+                            label = f"{d.code} - {d.level4 or d.description} (扣{abs(d.base_deduction) * factor:.1f})"
+                            checked = col.checkbox(
+                                label,
+                                value=d.checked,
+                                key=f"def_{d.id}"
+                            )
+                            if checked != d.checked:
+                                d.checked = checked
+                                session.commit()
                 st.markdown("---")
     
     st.subheader("数据导入导出")
