@@ -902,33 +902,39 @@ def show_project_management():
                     st.error(f"创建失败：{str(e)}")
             else:
                 st.warning("请输入项目名称")
-    
+
     st.subheader("已有项目")
+    # 使用一次性查询获取所有项目及其最新结果
     projects = session.query(Project).all()
     if not projects:
         st.info("暂无项目")
     else:
-        data = []
-        # 原来的循环查询
-        # for p in projects:
-            # result = session.query(Result).filter_by(project_id=p.id).order_by(Result.id.desc()).first()
-        # 改为一次性查询（需要调整逻辑）
+        # 获取每个项目的最新结果（使用子查询）
         from sqlalchemy import func, desc
         subq = session.query(Result.project_id, func.max(Result.id).label('max_id')).group_by(
             Result.project_id).subquery()
-        results = session.query(Result).join(subq, (Result.id == subq.c.max_id) & (
+        latest_results = session.query(Result).join(subq, (Result.id == subq.c.max_id) & (
                     Result.project_id == subq.c.project_id)).all()
-        result_map = {r.project_id: r for r in results}
-        # 然后在循环中从 result_map 获取
+        result_map = {r.project_id: r for r in latest_results}
+
+        data = []
+        for p in projects:
+            result = result_map.get(p.id)
             grade = result.final_grade if result else "未评估"
-            data.append({"ID": p.id, "名称": p.name, "桩号": p.pile_no, "等级": grade, "更新时间": p.updated_at.strftime("%Y-%m-%d")})
+            data.append({
+                "ID": p.id,
+                "名称": p.name,
+                "桩号": p.pile_no,
+                "等级": grade,
+                "更新时间": p.updated_at.strftime("%Y-%m-%d")
+            })
         df = pd.DataFrame(data)
         selected_ids = st.multiselect(
             "选择要删除的项目（可多选）",
             options=df['ID'].tolist(),
-            format_func=lambda x: f"ID {x} - {df[df['ID']==x]['名称'].iloc[0]}"
+            format_func=lambda x: f"ID {x} - {df[df['ID'] == x]['名称'].iloc[0]}"
         )
-        col1, col2, col3 = st.columns([1,1,1])
+        col1, col2, col3 = st.columns([1, 1, 1])
         with col1:
             if st.button("删除选中项目"):
                 if selected_ids:
