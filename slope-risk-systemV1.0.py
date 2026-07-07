@@ -101,7 +101,13 @@ class Result(Base):
     response_measures = Column(String(500))
     created_at = Column(DateTime, default=datetime.now)
 
-engine = create_engine('sqlite:///slope_risk.db', echo=False)
+# engine = create_engine('sqlite:///slope_risk.db', echo=False)
+import os
+import streamlit as st
+
+# 优先从 Streamlit Secrets 读取，其次从环境变量读取
+DATABASE_URL = st.secrets.get("DATABASE_URL", os.environ.get("DATABASE_URL", "postgresql://postgres:密码@db.xxx.supabase.co:5432/postgres"))
+engine = create_engine(DATABASE_URL, echo=False)
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 
