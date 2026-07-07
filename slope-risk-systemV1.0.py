@@ -1097,7 +1097,7 @@ def show_data_entry():
         return
     st.subheader(f"项目：{project.name} (ID={pid})")
     
-    with st.form("basic_info"):
+    with (st.form("basic_info")):
         col1, col2 = st.columns(2)
         with col1:
             project.route = st.text_input("路线名称", project.route)
@@ -1121,7 +1121,8 @@ def show_data_entry():
             selected_fac = st.multiselect("周边重要设施（可多选）", facilities_options, default=current_fac)
             project.facilities = ','.join(selected_fac) if selected_fac else '无'
             monitor_opts = ['有自动化监测 + 应急联动完整（近1年演练）', '仅有部分（人工、轻量化监测或有预案但无演练或资源缺失）', '无自动化监测 且 无应急联动（无预案/无演练/无资源）']
-            current_mon = project.monitor_emergency if project.monitor_emergency in monitor_opts else '仅有部分（人工、轻量化监测或有预案但无演练或资源缺失'
+            if current_mon not in monitor_opts:
+                current_mon = '无自动化监测 且 无应急联动（无预案/无演练/无资源）'
             project.monitor_emergency = st.selectbox("监测应急能力", monitor_opts, index=monitor_opts.index(current_mon))
             project.operating_years = st.number_input("运营年限", value=project.operating_years or 0, step=1)
             project.rainfall_3d = st.number_input("前3天累计雨量(mm)", value=project.rainfall_3d or 0.0)
