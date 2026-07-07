@@ -1496,5 +1496,7 @@ def show_result_report():
     session.close()
 
 if __name__ == "__main__":
+    # 先创建所有表（如果不存在）
+    Base.metadata.create_all(engine)
     init_db()
     main()
