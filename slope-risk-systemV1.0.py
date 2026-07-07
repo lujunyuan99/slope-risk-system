@@ -1430,9 +1430,6 @@ def show_result_report():
         try:
             engine = RiskEngine(pid)
             result, details = engine.compute()
-            # 存储到 session_state
-            st.session_state['last_result'] = result
-            st.session_state['coupling_details'] = details
             st.success("评估完成！请查看下方结果。")
         except Exception as e:
             st.error(f"评估失败：{str(e)}")
@@ -1441,10 +1438,12 @@ def show_result_report():
     if result is None:
         # 如果 session_state 没有，则从数据库读取
         result = session.query(Result).filter_by(project_id=pid).order_by(Result.id.desc()).first()
-    if not result:
-        st.info("尚未进行评估，请点击上方按钮")
-        session.close()
-        return
+        if not result:
+            st.info("尚未进行评估，请点击上方按钮")
+            session.close()
+            return
+        # 后续正常使用 result 对象
+
     
     coupling_details = st.session_state.get('coupling_details', [])
     
