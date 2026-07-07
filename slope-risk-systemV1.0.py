@@ -836,6 +836,23 @@ def main():
         show_result_report()
 
 # ---------- 项目管理 ----------
+@st.cache_data(ttl=60)
+def get_projects_with_results():
+    session = Session()
+    projects = session.query(Project).all()
+    data = []
+    for p in projects:
+        result = session.query(Result).filter_by(project_id=p.id).order_by(Result.id.desc()).first()
+        grade = result.final_grade if result else "未评估"
+        data.append({
+            "ID": p.id,
+            "名称": p.name,
+            "桩号": p.pile_no,
+            "等级": grade,
+            "更新时间": p.updated_at.strftime("%Y-%m-%d")
+        })
+    session.close()
+    return data
 def show_project_management():
     st.title("项目管理")
     session = Session()
