@@ -490,14 +490,24 @@ class RiskEngine:
             if t['min'] <= S_final <= t['max']:
                 grade = t['level']
                 break
-        if grade == '未定义' and S_final >= 80:
-            grade = '低风险'
-        elif grade == '未定义' and S_final >= 60:
-            grade = '中风险'
-        elif grade == '未定义' and S_final >= 40:
-            grade = '高风险'
-        elif grade == '未定义':
-            grade = '极高风险'
+        #if grade == '未定义' and S_final >= 80:
+            #grade = '低风险'
+        #elif grade == '未定义' and S_final >= 60:
+            #grade = '中风险'
+        #elif grade == '未定义' and S_final >= 40:
+            #grade = '高风险'
+        #elif grade == '未定义':
+            #grade = '极高风险'
+        # 如果未匹配到，使用硬编码后备
+        if grade == '未定义':
+            if S_final >= 80:
+                grade = '低风险'
+            elif S_final >= 60:
+                grade = '中风险'
+            elif S_final >= 40:
+                grade = '高风险'
+            else:
+                grade = '极高风险'
 
         final_grade = grade
         if self.project.fs_input is not None:
