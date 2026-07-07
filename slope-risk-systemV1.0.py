@@ -106,7 +106,7 @@ import os
 import streamlit as st
 
 # 优先从 Streamlit Secrets 读取，其次从环境变量读取
-DATABASE_URL = st.secrets.get("DATABASE_URL", os.environ.get("DATABASE_URL", "postgresql://postgres:密码@db.xxx.supabase.co:5432/postgres"))
+DATABASE_URL = st.secrets.get("DATABASE_URL", os.environ.get("DATABASE_URL", "postgresql://postgres:qwedcxzas8922LJY@aws-1-ap-southeast-1.supabase.co:5432/postgres"))
 engine = create_engine(DATABASE_URL, echo=False)
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
@@ -328,6 +328,9 @@ def load_default_weights():
 
 def init_db():
     session = Session()
+    # 让 SQLAlchemy 自动创建所有表（如果不存在）
+    Base.metadata.create_all(engine)
+    # 如果表已存在，则下面的逻辑会正常执行
     if session.query(SurveyDefect).filter_by(project_id=None).count() == 0:
         defects = load_defects_library()
         for d in defects:
