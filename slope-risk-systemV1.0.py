@@ -510,6 +510,7 @@ class RiskEngine:
                 grade = '极高风险'
 
         final_grade = grade
+        # 力学复核调整（如果有）
         if self.project.fs_input is not None:
             fs = self.project.fs_input
             design_fs = 1.25
@@ -699,6 +700,21 @@ def generate_word_report(project_id):
         (WeightConfig.project_id == project_id) | (WeightConfig.is_global == True)
     ).order_by(WeightConfig.is_global.desc()).first()
     grade_cfg = get_system_config('grade_thresholds')
+    st.write("调试1: grade_cfg =", grade_cfg)  # 打印完整配置
+    st.write("调试2: S_final =", S_final)  # 打印最终得分
+    grade = '未定义'
+    for t in grade_cfg.get('thresholds', []):
+        if t['min'] <= S_final <= t['max']:
+            grade = t['level']
+            break
+    st.write("调试3: grade =", grade)  # 打印初判等级
+
+    # 后面的力学复核逻辑也加上
+    if self.project.fs_input is not None:
+        st.write("调试4: fs_input =", self.project.fs_input)
+        # ... 原有调整逻辑
+    st.write("调试5: final_grade =", final_grade)  # 打印最终等级
+    
     safety_cfg = get_system_config('safety_factors')
     engine = RiskEngine(project_id)
     _, details = engine.compute()
