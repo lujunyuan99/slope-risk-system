@@ -898,6 +898,7 @@ def show_project_management():
                         session.add(wc)
                     session.commit()
                     st.success(f"项目 '{name}' 创建成功！请点击左侧“数据录入”继续。")
+                    st.cache_data.clear()  # 清除缓存，让项目列表刷新
                 except Exception as e:
                     st.error(f"创建失败：{str(e)}")
             else:
@@ -946,6 +947,7 @@ def show_project_management():
                             session.query(Project).filter_by(id=pid).delete()
                         session.commit()
                         st.success(f"成功删除 {len(selected_ids)} 个项目")
+                        st.cache_data.clear()  # 清除缓存
                         st.rerun()
                     except Exception as e:
                         st.error(f"删除失败：{str(e)}")
@@ -1035,6 +1037,7 @@ def show_project_management():
                     success_count += 1
                 session.commit()
                 st.success(f"成功导入 {success_count} 个项目")
+                st.cache_data.clear()  # 清除缓存
                 st.rerun()
             except Exception as e:
                 st.error(f"导入失败：{str(e)}")
