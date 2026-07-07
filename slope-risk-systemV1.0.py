@@ -326,11 +326,12 @@ def load_default_weights():
         json.dump(default, f, ensure_ascii=False, indent=2)
     return default
 
+
 def init_db():
-    session = Session()
     # 让 SQLAlchemy 自动创建所有表（如果不存在）
     Base.metadata.create_all(engine)
-    # 如果表已存在，则下面的逻辑会正常执行
+
+    session = Session()
     if session.query(SurveyDefect).filter_by(project_id=None).count() == 0:
         defects = load_defects_library()
         for d in defects:
